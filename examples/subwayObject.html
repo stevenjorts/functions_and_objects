@@ -1,0 +1,89 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+	<script language="javascript" type="text/javascript" src="../helpers/p5.js"></script>
+  <style> body {padding: 0; margin: 0;} </style>
+  <script>
+
+  //==========================================
+  //  Use an object to draw a subway line circle
+  //==========================================
+
+  //Define an array with a list of NYC subway lines
+  var nyc = ["A","B","C","D","E","F","G","J","Z","N","Q","R","1","2","3","4","5","6","7","L","S"];
+
+  //pick one randomly
+  var randomTrain = nyc[Math.floor(Math.random() * (nyc.length-1))];
+
+  //P5: set up the canvas
+  function setup() {
+		createCanvas(windowWidth, windowHeight);
+  }
+
+	function draw() { 
+    //declare the object
+    var myTrain = new Subway(randomTrain, 10);
+    //draw it using the drawSubway method
+    myTrain.drawSubway();
+  }
+
+  function Subway(line){
+    //set up the properties
+    this.line = line;
+
+    //lets get the line color using an object method
+    this.lineColor = function(){
+
+      if (this.line=="A" || this.line=="C" || this.line=="E"){
+        return "#2850AD"; //blue
+      } else if(this.line == "B" || this.line == "D" || this.line == "F" || this.line == "M"){
+        return "#FF6319"; //orange
+      } else if(this.line == "G"){
+        return "#6CBE45"; //green
+      } else if(this.line == "L"){
+        return "#A7A9AC";
+      } else if(this.line == "N" || this.line == "Q" || this.line == "R"){
+        return "#FCCC0A";
+      } else if (this.line == "J" || this.line == "Z"){
+        return "#996633";
+      } else if(this.line == "1" || this.line == "2" || this.line == "3"){
+        return "#EE352E";
+      } else if(this.line == "4" || this.line == "5" || this.line == "6"){
+        return "#00933C";
+      } else if(this.line == "7"){
+        return "#B933AD"; //purple
+      } else if(this.line == "S"){
+        return "#808183"; //silver
+      } else {
+        return "#000000";
+      }
+    };
+
+    //let's draw the circle using a drawCircle method
+    this.drawSubway = function(){
+
+      fill(this.lineColor());
+      ellipse(100,100,100,100);
+      
+      fill("white");
+      textSize(50);
+      textAlign(CENTER);
+      text(this.line, 100, 120);
+
+    };
+
+}
+
+  </script>
+
+</head>
+
+<body>
+</body>
+</html>
+
+
+
+
+
+

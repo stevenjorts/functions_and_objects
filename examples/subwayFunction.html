@@ -1,0 +1,87 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+	<script language="javascript" type="text/javascript" src="../helpers/p5.js"></script>
+  <style> body {padding: 0; margin: 0;} </style>
+  <script>
+
+  //==========================================
+  //  Use a function to draw a subway line circle
+  //==========================================
+
+  //Define an array with a list of NYC subway lines
+  var nyc = ["A","B","C","D","E","F","G","J","Z","N","Q","R","1","2","3","4","5","6","7","L","S"];
+
+  //pick one randomly
+  var randomTrain = nyc[Math.floor(Math.random() * (nyc.length-1))];
+
+  //P5: set up the canvas
+	function setup() {
+
+		createCanvas(windowWidth, windowHeight);
+
+  }
+
+  //P5: draw loop
+	function draw() {
+
+    //call the drawSubway function
+		drawSubway(randomTrain);
+  }
+
+
+  //This function accepts one argument, the name of the line
+  function drawSubway(line){
+
+  	//Fun fact: you can get the hex codes for subway line colors on
+  	// the MTA website: http://web.mta.info/developers/resources/line_colors.htm
+
+    //set the color depending on the line
+  	if (line=="A" || line=="C" || line=="E"){
+  		fill("#2850AD"); //blue
+  	} else if(line == "B" || line == "D" || line == "F" || line == "M"){
+  		fill("#FF6319"); //orange
+  	} else if(line == "G"){
+  		fill("#6CBE45"); //green
+  	} else if(line == "L"){
+  		fill("#A7A9AC");
+  	} else if(line == "N" || line == "Q" || line == "R"){
+  		fill("#FCCC0A");
+  	} else if (line == "J" || line == "Z"){
+  		fill("#996633");
+  	} else if(line == "1" || line == "2" || line == "3"){
+  		fill("#EE352E");
+  	} else if(line == "4" || line == "5" || line == "6"){
+  		fill("#00933C");
+  	} else if(line == "7"){
+  		fill("#B933AD"); //purple
+  	} else if(line == "S"){
+  		fill("#808183"); //silver
+  	} else {
+  		fill("black");
+  	}
+
+    //draw the circle
+  	ellipse(100,100,100,100);
+  	
+    //write the name of the line on top
+  	fill("white");
+  	textSize(50);
+  	textAlign(CENTER);
+		text(line, 100, 120);
+
+  }
+
+  </script>
+
+</head>
+
+<body>
+</body>
+</html>
+
+
+
+
+
+
