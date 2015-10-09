@@ -12,21 +12,32 @@
   //Your code STARTS here
 		function setup() {
 
-			createCanvas(windowWidth, windowHeight);
+			
+ createCanvas(800, 800);
+    background("white");
+    colorMode(RGB);
+    noFill();
 
-    }
+   }
 
 	function draw() {
 
       //this line will call your function
 			drawTarget();
-	
+
+
   }
 
   //Write a new function called drawTarget that 
   //draws several circles inside eachother like a bullseye
 
+function drawTarget(){
 
+    for(var i = 0; i < 20; i++){
+      stroke(255,0,0);
+      ellipse(300, 300, i * 20, i* 20);
+    }
+}
 
   </script>
 

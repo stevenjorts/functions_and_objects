@@ -14,14 +14,18 @@
 
 			createCanvas(windowWidth, windowHeight);
 
+noFill();
+
     }
 
     
 
 	function draw() {
+      
       //create the object and initialize it 
+       
       //with a color (feel free to change the color)
-      var myTarget = new Target("#FF0000");
+      var myTarget = new Target("grey");
 
       //Then call the drawTarget method to draw the object
 			myTarget.drawTarget();
@@ -36,11 +40,21 @@
 
   function Target(targetColor){
 
+this.drawTarget = function () {
+
+noFill();
+for(var x=0; x<12; x++){
+
+  stroke(targetColor);
+
+  ellipse(400,400, x * 50, x * 50);
+
+    }
 
 
   }
 
-
+}
 
 
   </script>

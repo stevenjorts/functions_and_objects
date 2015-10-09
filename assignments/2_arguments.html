@@ -11,7 +11,9 @@
 
 		function setup() {
 
-			createCanvas(windowWidth, windowHeight);
+			 createCanvas(800, 800);
+    background("white");
+    noFill();
 
     }
 
@@ -19,7 +21,7 @@
 
     //this line will call your function and pass it a color
     //feel free to change the color
-			drawTarget("#FF0000");
+			drawTarget("purple");
 	
   }
 
@@ -27,7 +29,10 @@
 //and uses that color to draw the target
 
   function drawTarget(targetColor){
-
+    for(var i = 0; i < 20; i++){
+      ellipse(300, 300, i * 20, i* 20);
+ stroke(targetColor);
+    }
 
   }
 
